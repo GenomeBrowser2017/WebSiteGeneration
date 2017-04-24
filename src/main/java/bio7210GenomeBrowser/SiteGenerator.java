@@ -96,10 +96,26 @@ public class SiteGenerator {
 		fileWriter.flush();
 		fileWriter.close();
 	}
+	
+	public static void generateComparativePage() throws IOException {
+		MustacheFactory mf = new DefaultMustacheFactory();
+		Mustache header = mf.compile("browserHeader.html");
+		Mustache body = mf.compile("comparative.html");
+		Mustache footer = mf.compile("browserFooter.mustache");
+		File file = new File("./src/main/htmlOutput/comparative.html");
+		file.createNewFile();
+		FileWriter fileWriter = new FileWriter(file);
+		header.execute(new PrintWriter(fileWriter), new SiteGenerator()).flush();
+		body.execute(new PrintWriter(fileWriter), new SiteGenerator()).flush();
+		footer.execute(new PrintWriter(fileWriter), new SiteGenerator()).flush();
+		fileWriter.flush();
+		fileWriter.close();
+	}
 
 	public static void main(String[] args) throws IOException {
 		generateHomePage();
 		generateStrainPage();
 		generateVFDBPage();
+		generateComparativePage();
 	}
 }
