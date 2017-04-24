@@ -1,0 +1,28 @@
+<div class="container theme-showcase" role="main">
+	<div class="jumbotron">
+		<h1>The Strains</h1>
+		<p>This page contains a table of Strains and relevant links to the
+			genome browser</p>
+	</div>
+	<div class="page-header">
+		<h1>Table of Strains</h1>
+	</div>
+	<table class="table table-striped col-md-12">
+		<thead>
+			<tr>
+				<th>Strain</th>
+				<th>Chromosome Link</th>
+				<th>Plasmid Link</th>
+			</tr>
+		</thead>
+		<tbody>
+			{{#strains}}
+			<tr>
+				<td>{{strainName}}</td>
+				<td><a href="{{strainUrl}}">Genome Browser Link</a></td>
+				<td><a href="{{plasmidUrl}}">Plasmid Genome Browser Link</a></td>
+			</tr>
+			{{/strains}}
+		</tbody>
+	</table>
+</div>
