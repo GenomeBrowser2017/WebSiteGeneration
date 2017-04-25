@@ -67,12 +67,12 @@ public class SiteGenerator {
 		fileWriter.close();
 	}
 	
-	public static void generateStrainPage() throws IOException {
+	public static void generateGenomeTemplate() throws IOException {
 		MustacheFactory mf = new DefaultMustacheFactory();
 		Mustache header = mf.compile("browserHeader.html");
-		Mustache body = mf.compile("strainPage.html");
+		Mustache body = mf.compile("genomeTemplate.html");
 		Mustache footer = mf.compile("browserFooter.mustache");
-		File file = new File("./src/main/htmlOutput/strains.html");
+		File file = new File("./src/main/htmlOutput/genomes.html");
 		file.createNewFile();
 		FileWriter fileWriter = new FileWriter(file);
 		header.execute(new PrintWriter(fileWriter), new SiteGenerator()).flush();
@@ -114,7 +114,7 @@ public class SiteGenerator {
 
 	public static void main(String[] args) throws IOException {
 		generateHomePage();
-		generateStrainPage();
+		generateGenomeTemplate();
 		generateVFDBPage();
 		generateComparativePage();
 	}
